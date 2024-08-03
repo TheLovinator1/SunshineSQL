@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "sunshinesql"
+version = "0.1.0"
+description = "A simple ORM for Python"
+authors = ["Joakim Hellsén <tlovinator@gmail.com>"]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/TheLovinator1/SunshineSQL"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py312"
+fix = true
+unsafe-fixes = true
+preview = true
+line-length = 120
+lint.select = ["ALL"]
+lint.ignore = [
+    "ANN201", # Checks that public functions and methods have return type annotations.
+    "ARG001", # Checks for the presence of unused arguments in function definitions.
+    "B008",   # Checks for function calls in default function arguments.
+    "CPY001", # Checks for the absence of copyright notices within Python files.
+    "D100",   # Checks for undocumented public module definitions.
+    "D104",   # Checks for undocumented public package definitions.
+    "FIX002", # Checks for "TODO" comments.
+    "RUF029", # Checks for functions declared async that do not await or otherwise use features requiring the function to be declared async.
+    "ERA001", # Checks for commented-out Python code.
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101", "ARG", "FBT", "PLR2004", "S311"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
